@@ -154,8 +154,8 @@ export class CoinbaseProExchangeAPI implements PublicExchangeAPI, AuthenticatedE
             return Promise.reject(new Error('No product ID provided to loadCandles'));
         }
         return this.publicClient.getProductHistoricRates(product, {
-            granularity: IntervalInMS[options.interval] * 0.001,
-            limit: options.limit || 350
+            granularity: options.interval//PublicExchangeAPI_1.IntervalInMS[options.interval] * 0.001,
+            //limit: options.limit || 350
         }).then((data: any[][]) => {
             return data.map((d: any[]) => {
                 return {
